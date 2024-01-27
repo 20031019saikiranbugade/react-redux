@@ -1,5 +1,6 @@
-const initState={
-    count:0
+const initState = {
+    count: 0,
+    valueStore: []
 }
 const reducer = (state = initState, action) => {
     switch (action.type) {
@@ -14,6 +15,13 @@ const reducer = (state = initState, action) => {
                 count: state.count - 10,
             }
             break;
+        case 'get_API_Value':
+            return {
+                ...state.valueStore,
+                valueStore:state.valueStore+getValueAPI(),
+            }
+            break;
+
 
         default:
             return state;
@@ -21,4 +29,11 @@ const reducer = (state = initState, action) => {
     }
 }
 
+
+const getValueAPI = async () => {
+    const result = await fetch('https://fakestoreapi.com/products/');
+    const res = await result.json();
+    console.log(res)
+    return res;
+}
 export default reducer;

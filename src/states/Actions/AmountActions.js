@@ -13,3 +13,9 @@ export const subValue=()=>{
         // data:dat
     }
 }
+
+export const getValueStoreAPI=()=>{
+    return{
+        type:'get_API_Value',
+    }
+}
