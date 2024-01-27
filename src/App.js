@@ -28,12 +28,15 @@
 import React from 'react'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
-
+import { Provider } from 'react-redux'
+import store from './states/Store'
 function App() {
   return (
     <>
-      <Navbar />
-      <Home />
+      <Provider store={store}>
+        <Navbar />
+        <Home />
+      </Provider>
     </>
   )
 }

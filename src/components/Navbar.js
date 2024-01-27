@@ -1,6 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
+    const countValue = useSelector(state => state.count)
     return (
         <>
             <nav class="navbar navbar-light bg-light">
@@ -8,7 +10,7 @@ const Navbar = () => {
                     <a class="navbar-brand">Navbar</a>
                     <div className='d-flex'>
                         <span className='text-success' style={{ fontWeight: "bold", fontSize: 25 }}>
-                            Amount:0
+                            Amount:{countValue}
                         </span>
                     </div>
                 </div>
